@@ -59,7 +59,7 @@
         						while($row=$result->fetch_assoc())
 								{
 									?>
-									<form method="POST" action="functions.php">
+									<!-- <form method="POST" action="functions.php"> -->
 									<div class="section group">
 									<div class="col_1_of_3 span_1_of_3">
 	                        		<div class="product-item">
@@ -80,13 +80,13 @@
 											<!-- <button onclick="$('#add-to-cart-1212').submit(); this.blur(); return false;" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;">&nbsp;</button> -->
 											
 											
-											<input class="add" type="submit" name="add" id="add" value="KC <?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;" onclick="" >&nbsp;</input>
-													
+											<!-- <input class="add" type="submit" name="add" id="add" value="KC <?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;" onclick="" >&nbsp;</input> -->
+											<button value="KC<?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;"></button>
            									<br><br><br>
            									</div>
                 					</div>
                 					</div>
-                					</form>
+                					<!-- </form> -->
 
 									<?php
 									
