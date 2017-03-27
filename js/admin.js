@@ -35,7 +35,7 @@ function editCategory(id){
 		return;
 	}
 
-	var url="edit_id_category.php"
+	var url="functions.php"
 
 	url=url+"?q="+id;
 	xmlHttp.onreadystatechange=stateChanged;
@@ -46,8 +46,9 @@ function editCategory(id){
 
 function stateChanged(){
 	if(xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){
-		document.getElementById("modalEdit").innerHTML=xmlHttp.responseText;
-		document.getElementById('modalEditt').style.display='block';
+		//document.getElementById("modalEdit").innerHTML=xmlHttp.responseText;
+		//document.getElementById('modalEditt').style.display='block';
+		console.log(xmlHttp.responseText);
 	}
 	
 }

@@ -11,7 +11,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'> 
 <script type="text/javascript" src="js/jquery-1.9.0.min.js"></script> 
-<script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>  
+<script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="js/admin.js"></script>
+<script type="text/javascript" src="js/proses.js"></script>  
 <!--light-box-->
 <script type="text/javascript" src="js/jquery.lightbox.js"></script>
 <link rel="stylesheet" type="text/css" href="css/lightbox.css" media="screen">
@@ -81,8 +83,8 @@
 											<!-- <button onclick="$('#add-to-cart-1212').submit(); this.blur(); return false;" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;">&nbsp;</button> -->
 											
 											
-											<input class="add" type="submit" name="add" id="add" value="KC<?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;" onclick="" >&nbsp;</input>
-											<!-- <button id="add" name="add" value="KC<?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;"></button> -->
+											<!-- <input class="add" type="submit" name="add" id="add" value="KC<?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;" onclick="" >&nbsp;</input> -->
+											<button name="add" value="KC<?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;" onclick="additemCart(this.value)"></button>
            									<br><br><br>
            									</div>
                 					</div>
@@ -122,7 +124,10 @@
 			         </div>
 			         </div>
 			         <script>
-			         	
+			         	function myFunct(kode){
+			         		//var item = document.getElementById('add').value;
+			         		console.log(kode);
+			         	}
 			         	
 			         	
 					    $('.add').click(function(){
