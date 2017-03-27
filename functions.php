@@ -2,7 +2,7 @@
 
 if(isset($_POST['add']))
 {
-	
+	$name = $_POST['add'];
 	addtocart($name);
 }
 

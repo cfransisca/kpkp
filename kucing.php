@@ -10,7 +10,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'> 
-<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>  
+<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script> 
+<script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>  
 <!--light-box-->
 <script type="text/javascript" src="js/jquery.lightbox.js"></script>
 <link rel="stylesheet" type="text/css" href="css/lightbox.css" media="screen">
@@ -74,14 +75,14 @@
            									<div class="price">Rp. <?= $row['harga']?></div>
 											
 										<a href="detail.php?show=<?= urlencode(base64_encode($row['id_hewan']))?>">
-											<h4>>> Detail Hewan</h4>
+											<h4> Detail Hewan</h4>
 										</a>       								
            									<br>
 											<!-- <button onclick="$('#add-to-cart-1212').submit(); this.blur(); return false;" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;">&nbsp;</button> -->
 											
 											
-											<!-- <input class="add" type="submit" name="add" id="add" value="KC <?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;" onclick="" >&nbsp;</input> -->
-											<button id="add" value="KC<?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;"></button>
+											<input class="add" type="submit" name="add" id="add" value="KC<?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;" onclick="" >&nbsp;</input>
+											<!-- <button id="add" name="add" value="KC<?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;"></button> -->
            									<br><br><br>
            									</div>
                 					</div>
@@ -122,17 +123,33 @@
 			         </div>
 			         <script>
 			         	
-			         	var item = document.getElementById('add').value;
+			         	
 			         	
 					    $('.add').click(function(){
-					    	$.ajax({
+					    	var item = document.getElementById('add').value;
+					    	console.log(item);
+					    	/*$.ajax({
 					    		type: "POST",
 					    		url: "functions.php",
 					    		data: {name: item}
 					    	}).done(function(){
 					    		alert("berhasil");
-					    	});
+					    	});*/
+					    	//callFunction();
 					    });
+
+					    /*function callFunction(){
+					    	jQuery.ajax({
+					    		type: "POST",
+					    		url: "functions.php",
+					    		data: {functionname: 'addtocart', arguments:[$(".add").val()]},
+					    		success:function(data){
+					    			alert(data);
+					    			console.log(data);
+					    		}
+					    	});
+					    }*/
+					    
 					 </script>
 					 <?php echo implode(" ", $_SESSION['item']);?>
 			     </body>
