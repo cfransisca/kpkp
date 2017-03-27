@@ -81,7 +81,7 @@
 											
 											
 											<!-- <input class="add" type="submit" name="add" id="add" value="KC <?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;" onclick="" >&nbsp;</input> -->
-											<button value="KC<?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;"></button>
+											<button id="add" value="KC<?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;"></button>
            									<br><br><br>
            									</div>
                 					</div>
@@ -121,19 +121,20 @@
 			         </div>
 			         </div>
 			         <script>
-			         	addFunction(){
-			         		var item = getElementById('add').value;
-			         	}
+			         	
+			         	var item = document.getElementById('add').value;
+			         	
 					    $('.add').click(function(){
 					    	$.ajax({
 					    		type: "POST",
-					    		url: "function.php",
+					    		url: "functions.php",
 					    		data: {name: item}
 					    	}).done(function(){
 					    		alert("berhasil");
 					    	});
 					    });
 					 </script>
+					 <?php echo implode(" ", $_SESSION['item']);?>
 			     </body>
 			     </html>
 

@@ -19,7 +19,7 @@ function addtocart($name)
 	else{
 		
 		$_SESSION['item'] = array();
-		array_push($_SESSION['item'], $item);
+		array_push($_SESSION['item'], $name);
 	}
 }
 ?>
