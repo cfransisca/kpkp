@@ -2,7 +2,7 @@
 	session_start();
     require 'connect_db.php';
 ?>
-
+<!-- comitted by embeks -->
 <!DOCTYPE HTML>
 <html>
 <head>
