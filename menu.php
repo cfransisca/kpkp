@@ -1,6 +1,7 @@
 <div id="cssmenu">
 		<?php
 		session_start();
+		echo $_SESSION['idcust'];
 		require 'connect_db.php';
 		$sql= "SELECT distinct jenis FROM jenishewan where jenis != 'ular'";
 		$result = mysqli_query($mysql,$sql);
@@ -42,10 +43,40 @@
 			   		else/*if(isset($_SESSION['idcust']))*/
 			   		{
 			   			echo'<li class="last"><a href="cart.php"><span>Keranjang Belanja</span></a></li>';
-			    		echo'<li><a href="logout.php"><span>Logout</span></a></li>';
+			    		echo'<li><a href="logout.php" onclick="logout()"><span>Logout</span></a></li>';
 			  
 			   		}
+
+
 			   ?>
+			   		<!-- <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+                    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase-app.js"></script>
+                    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase-auth.js"></script> -->
+                    <script>
+                     
+                      /*var config = {
+                        apiKey: "AIzaSyCYC_tC_eBIdVfKlu4XKrfWn_FV82LFlrw",
+                        authDomain: "petcart-5f108.firebaseapp.com",
+                        databaseURL: "https://petcart-5f108.firebaseio.com",
+                        storageBucket: "petcart-5f108.appspot.com",
+                        messagingSenderId: "230702348013"
+                      };
+                      firebase.initializeApp(config);
+			   			
+			   			function logout(){
+			   	
+						   	firebase.auth().signOut().then(function() {
+							  document.location = "index.php";
+							  
+							  
+							}, function(error) {
+							
+							    var errorCode = error.code;
+  								var errorMessage = error.message;
+  								alert(errorMessage);
+							});
+					   }*/
+					</script>
 			   
 			</ul>
 		</div>

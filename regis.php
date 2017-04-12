@@ -142,14 +142,20 @@
                         else{
                           console.log("email", uemail);
                         console.log("pass", upass);
-                        firebase.auth().createUserWithEmailAndPassword(uemail, upass);
+                        firebase.auth().createUserWithEmailAndPassword(uemail, upass).catch(function(error) {
+                          // Handle Errors here.
+                          var errorCode = error.code;
+                          var errorMessage = error.message;
+                          alert(errorMessage);
+                          // ...
+                        });
                         document.getElementById('regis').action="insert-regis.php";
                         document.getElementById('regis').submit();
 
                         }
 
                         
-                        
+                      
                       }
 
                     </script>

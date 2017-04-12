@@ -75,12 +75,12 @@
 										</a>           								
            									<br>
 
-											<!-- <button onclick="$('#add-to-cart-1212').submit(); this.blur(); return false;" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;">&nbsp;</button> -->
-											<?php include 'buy.php'; ?>		
+											<button name="add" value="KC<?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;" onclick="additemCart(this.value)"></button>
            									<br><br><br>
            									</div>
                 					</div>
                 					</div>
+                					<!-- </form> -->
 
 									<?php
 									
@@ -110,3 +110,45 @@
 						</div>
 						<div class="clear"> </div>
 			         </div>
+			         </div>
+			         </div>
+			         </div>
+			         </div>
+			         <script>
+			         	function myFunct(kode){
+			         		//var item = document.getElementById('add').value;
+			         		console.log(kode);
+			         	}
+			         	
+			         	
+					    $('.add').click(function(){
+					    	var item = document.getElementById('add').value;
+					    	console.log(item);
+					    	/*$.ajax({
+					    		type: "POST",
+					    		url: "functions.php",
+					    		data: {name: item}
+					    	}).done(function(){
+					    		alert("berhasil");
+					    	});*/
+					    	//callFunction();
+					    });
+
+					    /*function callFunction(){
+					    	jQuery.ajax({
+					    		type: "POST",
+					    		url: "functions.php",
+					    		data: {functionname: 'addtocart', arguments:[$(".add").val()]},
+					    		success:function(data){
+					    			alert(data);
+					    			console.log(data);
+					    		}
+					    	});
+					    }*/
+					    
+					 </script>
+					 <?php //echo implode(" ", $_SESSION['item']);?>
+			     </body>
+			     </html>
+
+	

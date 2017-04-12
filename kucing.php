@@ -156,7 +156,7 @@
 					    }*/
 					    
 					 </script>
-					 <?php echo implode(" ", $_SESSION['item']);?>
+					 <?php //echo implode(" ", $_SESSION['item']);?>
 			     </body>
 			     </html>
 
