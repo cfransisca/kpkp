@@ -1,7 +1,7 @@
 <div id="cssmenu">
 		<?php
 		session_start();
-		echo $_SESSION['idcust'];
+		//echo $_SESSION['idcust'];
 		require 'connect_db.php';
 		$sql= "SELECT distinct jenis FROM jenishewan where jenis != 'ular'";
 		$result = mysqli_query($mysql,$sql);

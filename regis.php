@@ -60,7 +60,7 @@
      <div class="content-top">
        <div class="about-grids">
                 <div class="service-content">
-                      <form method="POST" id="regis">
+                      <form method="POST" id="regis" action="insert-regis.php">
                         <div class="form-group">
                         <label for="usr">Nama Lengkap :</label><br>
                         <input type="text" class="form-control" id="nama" name="nama">
@@ -79,8 +79,9 @@
                       </div><br>
                       <div class="form-group">
                           <label for="usr">Password :</label> *Minimal 8 Karakter<br>
-                          <input type="text" class="form-control" id="pass">
+                          <input type="text" class="form-control" id="pass" name="pass">
                       </div><br>
+                      <!-- <input type="submit" class="btn btn-info" value="REGISTER" id="regiss"> -->
                       <input type="submit" class="btn btn-info" value="REGISTER" id="regis" onclick="create(document.getElementById('email').value,document.getElementById('pass').value);return false;">
                       </form>
                       
@@ -119,14 +120,14 @@
                      <script>
                       // Initialize Firebase
 
-                      var config = {
+                      /*var config = {
                         apiKey: "AIzaSyCYC_tC_eBIdVfKlu4XKrfWn_FV82LFlrw",
                         authDomain: "petcart-5f108.firebaseapp.com",
                         databaseURL: "https://petcart-5f108.firebaseio.com",
                         storageBucket: "petcart-5f108.appspot.com",
                         messagingSenderId: "230702348013"
                       };
-                      firebase.initializeApp(config);
+                      firebase.initializeApp(config);*/
 
                       function create(uemail,upass){
                         var passs = document.getElementById("pass").value;
@@ -140,17 +141,18 @@
                         return false;
                         } 
                         else{
-                          console.log("email", uemail);
+                          /*console.log("email", uemail);
                         console.log("pass", upass);
                         firebase.auth().createUserWithEmailAndPassword(uemail, upass).catch(function(error) {
-                          // Handle Errors here.
+                          
                           var errorCode = error.code;
                           var errorMessage = error.message;
-                          alert(errorMessage);
+                          alert(errorMessage);*/
                           // ...
-                        });
-                        document.getElementById('regis').action="insert-regis.php";
+                          document.getElementById('regis').action="insert-regis.php";
                         document.getElementById('regis').submit();
+                        
+                        
 
                         }
 

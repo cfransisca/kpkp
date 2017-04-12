@@ -44,13 +44,14 @@
        <div class="about-grids">
                 <div class="service-content">
                   	<div class="form-group">
+                    <form method="post" id="flogin">
                         <label for="usr">Email :</label><br>
-                        <input type="text" class="form-control" id="email">
+                        <input type="text" class="form-control" id="email" name="email">
 
                       </div><br>
                       <div class="form-group">
                           <label for="usr">Password :</label><br>
-                          <input type="text" class="form-control" id="password">
+                          <input type="text" class="form-control" id="password" name="pass">
                           
 
                       
@@ -58,28 +59,28 @@
                       <div class="pass-container"></div> <div class="pass-bar"></div>
                       <br> <div class="pass-hint"></div>
                       <button class="btn btn-info" value="LOGIN" id="login" onclick="check(document.getElementById('email').value,document.getElementById('password').value)">Submit</button>
-
+                      </form>
                     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
                     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase-app.js"></script>
                     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase-auth.js"></script>
                      <script>
                       
-                      var config = {
+                      /*var config = {
                         apiKey: "AIzaSyCYC_tC_eBIdVfKlu4XKrfWn_FV82LFlrw",
                         authDomain: "petcart-5f108.firebaseapp.com",
                         databaseURL: "https://petcart-5f108.firebaseio.com",
                         storageBucket: "petcart-5f108.appspot.com",
                         messagingSenderId: "230702348013"
                       };
-                      firebase.initializeApp(config);
+                      firebase.initializeApp(config);*/
 
                       function check(uemail,upass){
 
-                        console.log("email", uemail);
+                        /*console.log("email", uemail);
                         console.log("pass", upass);
                         firebase.auth().onAuthStateChanged(function(user) {
                           if (user) {
-                            // User is signed in.
+                            
                             console.log(user);
                           } else {
                             firebase.auth().signInWithEmailAndPassword(uemail, upass).catch(function(error) {
@@ -91,10 +92,11 @@
                             
                             });
                         window.location.replace("index.php");
-                            // No user is signed in.
+                            
                           }
-                        });
-                        
+                        });*/
+                        document.getElementById('flogin').action="sel-login.php";
+                        document.getElementById('flogin').submit();
                         //header('Location: http://localhost/kp/kpkp/index.php');
                         //ob_flush_end;
                       }
