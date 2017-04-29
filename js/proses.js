@@ -9,7 +9,8 @@ function GetXmlHttpObject(){
 	return xmlHttp;
 }
 
-function additemCart(id){
+
+function additemCart(id, quan){
 	xmlHttp=GetXmlHttpObject();
 	if(xmlHttp==null){
 		alert("Browser anda tidak support");
@@ -18,7 +19,7 @@ function additemCart(id){
 
 	var url="functions.php"
 
-	url=url+"?q="+id;
+	url=url+"?q="+id+"&&qt="+quan;
 	xmlHttp.onreadystatechange=stateChanged;
 	xmlHttp.open("GET",url,true);
 	xmlHttp.send(null);

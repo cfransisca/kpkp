@@ -5,18 +5,9 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Free 4Pets Website Template | Services :: w3layouts</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'> 
-<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script> 
-<script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
-<script type="text/javascript" src="js/admin.js"></script>
-<script type="text/javascript" src="js/proses.js"></script>  
-<!--light-box-->
-<script type="text/javascript" src="js/jquery.lightbox.js"></script>
-<link rel="stylesheet" type="text/css" href="css/lightbox.css" media="screen">
+<?php
+	include "head.php";
+?>
 
 	<script type="text/javascript">
 		$(function() {
@@ -76,7 +67,7 @@
            									
            									<div class="price">Rp. <?= $row['harga']?></div>
 											
-										<a href="detail.php?show=<?= urlencode(base64_encode($row['id_hewan']))?>">
+										<a href="detail.php?show=<?= urlencode(base64_encode($row['id_hewan']))?>" class="w3-text-teal">
 											<h4> Detail Hewan</h4>
 										</a>       								
            									<br>
@@ -84,7 +75,7 @@
 											
 											
 											<!-- <input class="add" type="submit" name="add" id="add" value="KC<?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;" onclick="" >&nbsp;</input> -->
-											<button name="add" value="KC<?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;" onclick="additemCart(this.value)"></button>
+											<button id="cart" name="add" value="KC<?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;" onclick="document.getElementById('cart').style.display='block'"></button>
            									<br><br><br>
            									</div>
                 					</div>
@@ -123,40 +114,27 @@
 			         </div>
 			         </div>
 			         </div>
-			         <script>
-			         	function myFunct(kode){
-			         		//var item = document.getElementById('add').value;
-			         		console.log(kode);
-			         	}
-			         	
-			         	
-					    $('.add').click(function(){
-					    	var item = document.getElementById('add').value;
-					    	console.log(item);
-					    	/*$.ajax({
-					    		type: "POST",
-					    		url: "functions.php",
-					    		data: {name: item}
-					    	}).done(function(){
-					    		alert("berhasil");
-					    	});*/
-					    	//callFunction();
-					    });
+			         
+			        <div id="cart" class="w3-modal">
+					  <div class="w3-modal-content">
 
-					    /*function callFunction(){
-					    	jQuery.ajax({
-					    		type: "POST",
-					    		url: "functions.php",
-					    		data: {functionname: 'addtocart', arguments:[$(".add").val()]},
-					    		success:function(data){
-					    			alert(data);
-					    			console.log(data);
-					    		}
-					    	});
-					    }*/
-					    
-					 </script>
-					 <?php //echo implode(" ", $_SESSION['item']);?>
+					    <header class="w3-container w3-teal">
+					      <span onclick="document.getElementById('cart').style.display='none'"
+					      class="w3-button w3-display-topright">&times;</span>
+					      <h2>Modal Header</h2>
+					    </header>
+
+					    <div class="w3-container">
+					      <p>Some text..</p>
+					      <p>Some text..</p>
+					    </div>
+
+					    <footer class="w3-container w3-teal">
+					      <p>Modal Footer</p>
+					    </footer>
+
+					  </div>
+					</div>
 			     </body>
 			     </html>
 
