@@ -85,6 +85,7 @@
 									<?php
 									
 								}
+
         						?>
 								
 						</div>
@@ -116,23 +117,39 @@
 			         </div>
 			         
 			        <div id="cartmod" class="w3-modal">
-					  <div class="w3-modal-content">
+					  <div class="w3-modal-content" style="margin-top:120px">
 
 					    <header class="w3-container w3-teal">
 					      <span onclick="document.getElementById('cartmod').style.display='none'"
 					      class="w3-button w3-display-topright">&times;</span>
-					      <h2>Modal Header</h2>
+					      <h2>Keranjang Belanja</h2>
 					    </header>
+					    	<div class="w3-container" style="height:100px">
+							    	<table>
+							    		<thead>
+							    			<tr>
+							    				<td width="2%"></td>
+							    				<td width="10%">Nama Barang</td>
+							    				
+							    				<td width="10%">Jumlah</td>
+							    				
+							    				<td width="10%">Harga</td>
+							    			</tr>
 
-					    <div class="w3-container">
-					      <p>Some text..</p>
-					      <p>Some text..</p>
-					    </div>
-
-					    <footer class="w3-container w3-teal">
-					      <p>Modal Footer</p>
-					    </footer>
-
+							    		</thead>
+							    		<br>
+							    		<tbody>
+							    			
+							    			<tr>
+							    				<td width="2%"></td>
+							    				<td width="10%">Nama Barang</td>
+							    				
+							    				<td width="10%">Jumlah</td>
+							    				<td width="10%">Harga</td>
+							    			</tr>
+							    		</tbody>
+							    	</table>
+							    </div>
 					  </div>
 					</div>
 			     </body>

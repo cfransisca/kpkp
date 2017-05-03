@@ -3,15 +3,10 @@ session_start();
 
 $i = 0;
 
-//$quantity = $_SESSION['quan'];
+$quantity = $_SESSION['quan'];
+
 
 foreach ($_SESSION['item'] as $key => $value1) {
-  echo "<h3>$value1 </h3>";
-}
-
-//kmrn bbem nambahin echo2 itu. tapi malah error >.<
-
-/*foreach ($_SESSION['item'] as $key => $value1) {
   foreach ($_SESSION['harga'] as $key => $value2) {
    // $value1 = $value1*$quan;
   echo "<h3>$value1 </h3>";
@@ -27,6 +22,6 @@ foreach ($_SESSION['item'] as $key => $value1) {
 
   }
   break;
-}*/
+}
 
 ?>
