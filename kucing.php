@@ -75,7 +75,7 @@
 											
 											
 											<!-- <input class="add" type="submit" name="add" id="add" value="KC<?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;" onclick="" >&nbsp;</input> -->
-											<button id="cart" name="add" value="KC<?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;" onclick="document.getElementById('cart').style.display='block'"></button>
+											<button id="cart" name="add" value="KC<?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;" onclick="document.getElementById('cartmod').style.display='block'"></button>
            									<br><br><br>
            									</div>
                 					</div>
@@ -119,7 +119,7 @@
 					  <div class="w3-modal-content">
 
 					    <header class="w3-container w3-teal">
-					      <span onclick="document.getElementById('cart').style.display='none'"
+					      <span onclick="document.getElementById('cartmod').style.display='none'"
 					      class="w3-button w3-display-topright">&times;</span>
 					      <h2>Modal Header</h2>
 					    </header>
