@@ -115,7 +115,7 @@
 			         </div>
 			         </div>
 			         
-			        <div id="cart" class="w3-modal">
+			        <div id="cartmod" class="w3-modal">
 					  <div class="w3-modal-content">
 
 					    <header class="w3-container w3-teal">
