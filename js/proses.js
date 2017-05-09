@@ -37,7 +37,7 @@ function stateChanged(){
 	
 }
 
-function addModal(id,quan,harga){
+function addModal(id,quan,harga,nama){
 
 	xmlHttp=GetXmlHttpObject();
 	if(xmlHttp==null){
@@ -47,7 +47,7 @@ function addModal(id,quan,harga){
 
 	var url="addtocart.php"
 
-	url=url+"?q="+id+"&&qt="+quan+"&&prc="+harga;
+	url=url+"?q="+id+"&&qt="+quan+"&&prc="+harga+"&&nm="+nama;
 	console.log(url);
 	xmlHttp.onreadystatechange=stateChangedd;
 	xmlHttp.open("GET",url,true);
