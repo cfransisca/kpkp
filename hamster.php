@@ -1,20 +1,14 @@
 <?php
-	session_start();
+	
     require 'connect_db.php';
 ?>
 
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Free 4Pets Website Template | Services :: w3layouts</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'> 
-<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>  
-<!--light-box-->
-<script type="text/javascript" src="js/jquery.lightbox.js"></script>
-<link rel="stylesheet" type="text/css" href="css/lightbox.css" media="screen">
+<?php
+	include "head.php";
+?>
 	<script type="text/javascript">
 		$(function() {
 			$('.gallery a').lightBox();
@@ -63,20 +57,21 @@
 									<div class="section group">
 									<div class="col_1_of_3 span_1_of_3">
 	                        		<div class="product-item">
-	                        			<a href="detail.php?show=<?= $row['id_hewan']?>">
+	                        			
             							<div class="img">
             								<img src="images/hamster/<?= $row['foto']?>" width="180" height="230"/>
             							</div>
-            								<h4>K<?= $row['id_hewan']?></h4>
+            								<h4>H<?= $row['id_hewan']?></h4>
             								
            									<div class="desc-product"><?= $row['jenis']?>&nbsp;<?= $row['ras']?>&nbsp;<?= $row['warna']?></div>
            									
            									<div class="price">Rp. <?= $row['harga']?></div>
-										</a>           								
-           									<br>
-
-											<!-- <button onclick="$('#add-to-cart-1212').submit(); this.blur(); return false;" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;">&nbsp;</button> -->
-											<?php include 'buy.php'; ?>		
+										<a href="detail.php?show=<?= urlencode(base64_encode($row['id_hewan']))?>" class="w3-text-teal">
+											<h4> Detail Hewan</h4>
+										</a>
+										<br>
+										
+											<button id="cart" name="add" value="H<?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;" onclick="additemCart(this.value)"></button>
            									<br><br><br>
            									</div>
                 					</div>
@@ -110,3 +105,23 @@
 						</div>
 						<div class="clear"> </div>
 			         </div>
+			         </div>
+			         </div>
+			         </div>
+			         </div>
+			         </div>
+			         <div id="cartmod" class="w3-modal">
+					  <div class="w3-modal-content" style="margin-top:120px">
+
+					    <header class="w3-container w3-teal">
+					      <span onclick="document.getElementById('cartmod').style.display='none'"
+					      class="w3-button w3-display-topright">&times;</span>
+					      <h2>Keranjang Belanja</h2>
+					    </header>
+					    	<div class="w3-container" id="contentmodal" style="height:100px">
+							    	
+							    </div>
+					  </div>
+					</div>
+			     </body>
+			     </html>

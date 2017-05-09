@@ -53,7 +53,7 @@
         						while($row=$result->fetch_assoc())
 								{
 									?>
-									<!-- <form method="POST" action="functions.php"> -->
+									
 									<div class="section group">
 									<div class="col_1_of_3 span_1_of_3">
 	                        		<div class="product-item">
@@ -71,16 +71,13 @@
 											<h4> Detail Hewan</h4>
 										</a>       								
            									<br>
-											<!-- <button onclick="$('#add-to-cart-1212').submit(); this.blur(); return false;" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;">&nbsp;</button> -->
 											
-											
-											<!-- <input class="add" type="submit" name="add" id="add" value="KC<?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;" onclick="" >&nbsp;</input> -->
-											<button id="cart" name="add" value="KC<?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;" onclick="document.getElementById('cartmod').style.display='block'"></button>
+											<button id="cart" name="add" value="KC<?= $row['id_hewan']?>" style="background:url(http://www.petshopgrosir.com/templates/frontend/psg/images/beli_button.png) no-repeat; border:none; width:131px; height:32px;" onclick="additemCart(this.value)"></button>
            									<br><br><br>
-           									</div>
+           							</div>
                 					</div>
                 					</div>
-                					<!-- </form> -->
+                					
 
 									<?php
 									
@@ -124,31 +121,8 @@
 					      class="w3-button w3-display-topright">&times;</span>
 					      <h2>Keranjang Belanja</h2>
 					    </header>
-					    	<div class="w3-container" style="height:100px">
-							    	<table>
-							    		<thead>
-							    			<tr>
-							    				<td width="2%"></td>
-							    				<td width="10%">Nama Barang</td>
-							    				
-							    				<td width="10%">Jumlah</td>
-							    				
-							    				<td width="10%">Harga</td>
-							    			</tr>
-
-							    		</thead>
-							    		<br>
-							    		<tbody>
-							    			
-							    			<tr>
-							    				<td width="2%"></td>
-							    				<td width="10%">Nama Barang</td>
-							    				
-							    				<td width="10%">Jumlah</td>
-							    				<td width="10%">Harga</td>
-							    			</tr>
-							    		</tbody>
-							    	</table>
+					    	<div class="w3-container" id="contentmodal" style="height:100px">
+							    	
 							    </div>
 					  </div>
 					</div>

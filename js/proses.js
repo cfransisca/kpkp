@@ -10,7 +10,9 @@ function GetXmlHttpObject(){
 }
 
 
-function additemCart(id, quan){
+
+
+function additemCart(id){
 	xmlHttp=GetXmlHttpObject();
 	if(xmlHttp==null){
 		alert("Browser anda tidak support");
@@ -19,7 +21,7 @@ function additemCart(id, quan){
 
 	var url="functions.php"
 
-	url=url+"?q="+id+"&&qt="+quan;
+	url=url+"?q="+id;
 	xmlHttp.onreadystatechange=stateChanged;
 	xmlHttp.open("GET",url,true);
 	xmlHttp.send(null);
@@ -28,9 +30,35 @@ function additemCart(id, quan){
 
 function stateChanged(){
 	if(xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){
-		//document.getElementById("modalEdit").innerHTML=xmlHttp.responseText;
-		//document.getElementById('modalEditt').style.display='block';
+		document.getElementById("contentmodal").innerHTML=xmlHttp.responseText;
+		document.getElementById('cartmod').style.display='block';
 		console.log(xmlHttp.responseText);
+	}
+	
+}
+
+function addModal(id,quan,harga){
+
+	xmlHttp=GetXmlHttpObject();
+	if(xmlHttp==null){
+		alert("Browser anda tidak support");
+		return;
+	}
+
+	var url="addtocart.php"
+
+	url=url+"?q="+id+"&&qt="+quan+"&&prc="+harga;
+	console.log(url);
+	xmlHttp.onreadystatechange=stateChangedd;
+	xmlHttp.open("GET",url,true);
+	xmlHttp.send(null);
+	/*document.getElementById('id01').style.display='block'*/
+}
+
+function stateChangedd(){
+	if(xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){
+		console.log(xmlHttp.responseText);
+		document.getElementById('cartmod').style.display='none';
 	}
 	
 }

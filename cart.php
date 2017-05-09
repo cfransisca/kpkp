@@ -1,27 +1,28 @@
 <?php
 session_start();
+include 'head.php';
+echo "<div style='margin-top:100px'>";
+echo "<div class='w3-third w3-container' style='width:100px'>";
 
-$i = 0;
+echo "ID <br>";
+foreach ($_SESSION['id'] as $key=>$value1){echo "{$value1} <br>";}
+echo "</div>";
 
-$quantity = $_SESSION['quan'];
+echo "<div class='w3-third w3-container' style='width:200px'>";
+echo "HARGA <br>";
+foreach ($_SESSION['harga'] as $key=>$value2){echo "{$value2} <br>";}
+echo "</div>";
 
+echo "<div class='w3-third w3-container' style='width:100px'>";
+echo "QUANTITY <br>";
+foreach ($_SESSION['quan'] as $key=>$value3){echo "{$value3} <br>";}
+echo "</div>";
 
-foreach ($_SESSION['item'] as $key => $value1) {
-  foreach ($_SESSION['harga'] as $key => $value2) {
-   // $value1 = $value1*$quan;
-  echo "<h3>$value1 </h3>";
-  echo "<form class='update-quantity-form w-200-px'>";
-      echo "<div class='product-id' style='display:none;'>$id</div>";
-      echo "<input type='number' value='$quantity' name='quantity' class='form-control cart-quantity m-b-10px cart-quantity-dropdown' min='1' />";
-  echo "<button id='update' class='btn btn-default update-quantity' type='submit'>Update</button>";
-  echo "<button id='hapus' class='btn btn-default update-quantity' type='submit'>Hapus</button>";
-  echo "</form>";
-  
-  echo "<h3>{$value2} </h3>";
+echo "SUBTOTAL <br>";
+foreach ($_SESSION['sub'] as $key=>$value4){echo "{$value4} <br>";}
+echo "</div>";
 
-
-  }
-  break;
-}
-
+echo "</div>";
+echo "<br><br><br><br><br>";
+echo "<button id='bayar' style='margin-left:300px'>Pembayaran</button>";
 ?>
