@@ -713,6 +713,18 @@ form div {
 	float: left;
 	outline: none;
 }
+.to input[type="password"] {
+	padding: 20px 9px;
+	width: 48%;
+	font-size: 1em;
+	font-family: 'Roboto Condensed', sans-serif;
+	margin: 10px 0;
+	border: 1px solid #E1E2E2;
+	color: #888;
+	background: #FFF;
+	float: left;
+	outline: none;
+}
 .text input[type="text"], .text textarea {
 	width:98.3%;
 	font-size:1em;

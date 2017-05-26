@@ -4,34 +4,19 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-<?php 
-//session_start();
-//$_SESSION['idcust']='32';
-?>
-
 
 <!DOCTYPE HTML>
 <html>
 <head>
 
-<title>Free 4Pets Website Template | Home :: w3layouts</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
-<!--slider-->
-<link href="css/slider.css" rel="stylesheet" type="text/css" media="all"/>
-<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
-<script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
-<link rel="stylesheet" href="css/w3.css">
-<script type="text/javascript" src="js/index.js"></script>
-<script type="text/javascript" src="js/admin.js"></script>
-<link rel="stylesheet" href="css/font-awesome.min.css">
+<?php
+	include "head.php";
+?>
 <script type="text/javascript">
     $(window).load(function() {
         $('#slider').nivoSlider();
     });
-    </script>
+</script>
 <!--light-box-->
 <script type="text/javascript" src="js/jquery.lightbox.js"></script>
 <link rel="stylesheet" type="text/css" href="css/lightbox.css" media="screen">
@@ -46,7 +31,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="wrap">   
 	   <div class="header-top">	
 	        <div class="logo">
-				<a href="index.php"><img src="images/logo.png" alt=""/></a>
+				
 			</div>
 			<div class="phone">
 				
@@ -55,35 +40,65 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	    </div>
 	</div>
 
-	<!-- popup -->
-
-	<div id="id01" class="w3-modal">
-    <div class="w3-modal-content w3-card-8 w3-animate-zoom">
-      <header class="w3-container w3-teal"> 
-        <span onclick="document.getElementById('id01').style.display='none'" 
-        class="w3-closebtn">&times;</span>
-        <h2>Sign Up</h2>
-      </header>
-      <div class="w3-container">
-      	<p></p>
-        <input type="text" class="w3-input" placeholder="Nama Lengkap" name="nama">
-        <input type="text" class="w3-input" placeholder="Email" name="email">
-        <input type="text" class="w3-input" placeholder="Alamat" name="alamat">
-        <input type="text" class="w3-input" placeholder="Password" name="pass">
-        <input type="text" class="w3-input" placeholder="Ulangi Password" name="repass">
-        <p></p>
-      </div>
-      <footer class="w3-container w3-teal">
-        <p></p>
-        <p></p>
-      </footer>
-    </div>
-  </div>
+	
 
 	<div class="header-bottom">
 	  <div class="wrap">	
 		<!-- menu -->
-		<?php include 'menu.php'; ?>
+		<div id="cssmenu" style="width:1250px">
+		<?php
+		session_start();
+		
+		require 'connect_db.php';
+		$sql= "SELECT distinct jenis FROM jenishewan where jenis != 'ular'";
+		$result = mysqli_query($mysql,$sql);
+		$a=1;
+		?>
+			 <ul>
+			   <li class="active"><a href="index.php"><span>Home</span></a></li>
+			   <li ><a href=""><span>Produk</span></a>
+			      <ul>
+			      	<?php 
+			      	while($row=$result->fetch_assoc())
+					{
+						$web = strtolower($row['jenis']);
+						?>
+						<li class="has-sub"><a href="<?= $web?>.php"><span><?= $row['jenis']?></span></a></li>
+						<?php
+					} ?>
+					 
+					 <li class="has-sub"><a href="reptil.php"><span>Reptil</span></a></li>
+			         <li class="has-sub"><a href="makanan.php"><span>Makanan Hewan</span></a></li>
+			         <li class="has-sub"><a href="aksesoris.php"><span>Aksesoris Hewan</span></a></li>
+			         <li class="has-sub"><a href="suplemen.php"><span>Suplemen</span></a></li>
+			         <li class="has-sub"><a href="grooming.php"><span>Jasa Grooming</span></a></li>
+			         
+			      </ul>
+		
+			   </li>
+			   <li class="has-sub"><a href="carabelanja.php"><span>Cara Belanja</span></a></li>
+			   <li class="has-sub"><a href="about.php"><span>Tentang Kami</span></a></li>
+			   <li class="has-sub"><a href="kontak.php"><span>Kontak Kami</span></a></li>
+			   <?php
+			   		if(!isset($_SESSION['idcust']))
+			   		{
+			   			echo '<li class="has-sub"><a href="regis.php"><span>Register</span></a></li>';
+			   			echo '<li class="has-sub"><a href="login.php"><span>Login</span></a></li>';
+			  
+			   		}
+			   
+			   		else
+			   		{
+			   			echo'<li class="has-sub"><a href="cart.php"><span>Keranjang Belanja</span></a></li>';
+			    		echo'<li class="last"><a href="logout.php" onclick="logout()"><span>Logout</span></a></li>';
+			  
+			   		}
+
+
+			   ?>
+			   
+			</ul>
+		</div>
 		<div class="clear"></div> 
 	  </div>
    </div>

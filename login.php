@@ -1,14 +1,8 @@
 <html>
 <head>
-  <title>Free 4Pets Website Template | Services :: w3layouts</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'> 
-<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>  
-<!--light-box-->
-<script type="text/javascript" src="js/jquery.lightbox.js"></script>
-<link rel="stylesheet" type="text/css" href="css/lightbox.css" media="screen">
+  <?php
+  include "head.php";
+?>
   <script type="text/javascript">
     $(function() {
       $('.gallery a').lightBox();
@@ -20,11 +14,10 @@
   <div class="wrap">                                                                                
      <div class="header-top">                                                                       
           <div class="logo">                                                                        
-        <a href="index.php"><img src="images/logo.png" alt=""/></a>                                             
+        
       </div>                                                                                    
       <div class="phone">                                                                       
-        <span class="order">order online:</span><br>                                          
-        <h5 class="ph-no">085745555881</h5>                                             
+                                                  
       </div>                                                                                    
       <div class="clear"></div>                                                                 
       </div>                                                                                        
@@ -32,7 +25,59 @@
   <div class="header-bottom">                                                                       
     <div class="wrap">                                                                            
     <!-- menu -->
-    <?php include 'menu.php'; ?>                                                                                      
+    <div id="cssmenu" style="width:1250px">
+    <?php
+    session_start();
+    
+    require 'connect_db.php';
+    $sql= "SELECT distinct jenis FROM jenishewan where jenis != 'ular'";
+    $result = mysqli_query($mysql,$sql);
+    $a=1;
+    ?>
+       <ul>
+         <li class="has-sub"><a href="index.php"><span>Home</span></a></li>
+         <li class="has-sub"><a href=""><span>Produk</span></a>
+            <ul>
+              <?php 
+              while($row=$result->fetch_assoc())
+          {
+            $web = strtolower($row['jenis']);
+            ?>
+            <li class="has-sub"><a href="<?= $web?>.php"><span><?= $row['jenis']?></span></a></li>
+            <?php
+          } ?>
+           
+           <li class="has-sub"><a href="reptil.php"><span>Reptil</span></a></li>
+               <li class="has-sub"><a href="makanan.php"><span>Makanan Hewan</span></a></li>
+               <li class="has-sub"><a href="aksesoris.php"><span>Aksesoris Hewan</span></a></li>
+               <li class="has-sub"><a href="suplemen.php"><span>Suplemen</span></a></li>
+               <li class="has-sub"><a href="grooming.php"><span>Jasa Grooming</span></a></li>
+               
+            </ul>
+    
+         </li>
+         <li class="has-sub"><a href="carabelanja.php"><span>Cara Belanja</span></a></li>
+         <li class="has-sub"><a href="about.php"><span>Tentang Kami</span></a></li>
+         <li class="has-sub"><a href="kontak.php"><span>Kontak Kami</span></a></li>
+         <?php
+            if(!isset($_SESSION['idcust']))
+            {
+              echo '<li class="has-sub"><a href="regis.php"><span>Register</span></a></li>';
+              echo '<li class="active"><a href="login.php"><span>Login</span></a></li>';
+        
+            }
+         
+            else
+            {
+              echo'<li class="has-sub"><a href="cart.php"><span>Keranjang Belanja</span></a></li>';
+              echo'<li class="last"><a href="logout.php" onclick="logout()"><span>Logout</span></a></li>';
+        
+            }
+
+
+         ?>
+      </ul>
+    </div>
     <div class="clear"></div>                                                                     
     </div>                                                                                          
    </div>                                                                                             
@@ -43,22 +88,20 @@
      <div class="content-top">
        <div class="about-grids">
                 <div class="service-content">
-                  	<div class="form-group">
+                  	
                     <form method="post" id="flogin">
+                      <div class="to">
                         <label for="usr">Email :</label><br>
                         <input type="text" class="form-control" id="email" name="email">
 
-                      </div><br>
-                      <div class="form-group">
+                      </div><br><br><br><br>
+                      <div class="to">
                           <label for="usr">Password :</label><br>
-                          <input type="text" class="form-control" id="password" name="pass">
-                          
-
-                      
-                      </div><br>
-                      <div class="pass-container"></div> <div class="pass-bar"></div>
-                      <br> <div class="pass-hint"></div>
-                      <button class="btn btn-info" value="LOGIN" id="login" onclick="check(document.getElementById('email').value,document.getElementById('password').value)">Submit</button>
+                          <input type="password" class="form-control" id="password" name="pass">
+                      </div><br><br><br><br>
+                      <!-- <div class="pass-container"></div> <div class="pass-bar"></div>
+                      <br> <div class="pass-hint"></div> -->
+                      <button class="btn btn-info"  style="margin-left:0px" value="LOGIN" id="login" onclick="check(document.getElementById('email').value,document.getElementById('password').value)">Submit</button>
                       </form>
                     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
                     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase-app.js"></script>
@@ -106,7 +149,7 @@
                     </div>
         
             <div class="services-sidebar">
-              <h3>WE PROVIDE</h3>
+              <!-- <h3>WE PROVIDE</h3>
                <ul>
                   <li><a href="#">Lorem ipsum dolor sit amet</a></li>
                   <li><a href="#">Conse ctetur adipisicing</a></li>
@@ -114,15 +157,15 @@
                   <li><a href="#">Incididunt ut labore</a></li>
                   <li><a href="#">Et dolore magna aliqua</a></li>
                   <li><a href="#">Ut enim ad minim veniam</a></li>
-               </ul>
+               </ul> -->
                <div class="service-box"> </div>
-               <h3>ARCHIVES</h3>
+               <!-- <h3>ARCHIVES</h3>
                <ul>
                 <li><a href="#">JAN, 2013</a></li>
                 <li><a href="#">FEB, 2013</a></li>
                 <li><a href="#">MAR, 2013</a></li>
                 <li><a href="#">APRIL, 2013</a></li>
-               </ul>
+               </ul> -->
             </div>
             <div class="clear"> </div>
           </div>

@@ -7,15 +7,15 @@ $kode = substr($id, 0, 2);
 $i = substr($id, 2);
 
 
-if ($kode == 'A') {$kategori = 'Anjing';}
-if ($kode == 'B') {$kategori = 'Burung';}
-if ($kode == 'H') {$kategori = 'Hamster';}
-if ($kode == 'I') {$kategori = 'Ikan';}
-if ($kode == 'KL') {$kategori = 'Kelinci';}
-if ($kode == 'KC') {$kategori = 'Kucing';}
-if ($kode == 'P') {$kategori = 'Makanan';}
-if ($kode == 'R') {$kategori = 'Reptil';}
-if ($kode == 'S') {$kategori = 'Suplemen';}
+if ($kode === 'AJ') {$kategori='Anjing';}
+else if ($kode === 'BG') {$kategori = 'Burung';}
+else if ($kode === 'HR') {$kategori = 'Hamster';}
+else if ($kode === 'IK') {$kategori = 'Ikan';}
+else if ($kode === 'KL') {$kategori = 'Kelinci';}
+else if ($kode === 'KC') {$kategori = 'Kucing';}
+else if ($kode === 'PK') {$kategori = 'Makanan';}
+else if ($kode === 'RL') {$kategori = 'Reptil';}
+else if ($kode === 'SP') {$kategori = 'Suplemen';}
 	
 	
 $sql= "select hewan.id_hewan, hewan.warna,hewan.harga,hewan.foto, jenishewan.jenis, jenishewan.ras
@@ -25,7 +25,6 @@ $result = mysqli_query($mysql,$sql);
 while($row=$result->fetch_assoc())
 {
 	$nama= $row['jenis'].' '.$row['ras'].' '.$row['warna'];
-	//echo $nama;
 	?>
 	<table>
 		
